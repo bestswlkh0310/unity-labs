@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class CharacterMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // MARK: - Properties
     
@@ -11,6 +11,15 @@ public class CharacterMove : MonoBehaviour
     private Transform _cameraTransform;
     private CharacterController _characterController;
     private LayerMask _fieldLayer;
+    
+    // Player Info
+    public const int MaxHp = 100;
+    private int _hp = MaxHp;
+    public int Hp
+    {
+        get => _hp;
+        set => _hp = Mathf.Max(value, 0);
+    }
 
     // Player Move
     private float _moveSpeed = 5f;
